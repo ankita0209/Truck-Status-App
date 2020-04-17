@@ -22,24 +22,21 @@ function Sidebar(props) {
 
     return (
         <Fragment>
-            {getTrucks().map((truck) => {
-            const { truckNumber, lastWaypoint: {speed}} =  truck;
-            return <div className="Truck-detail">
+            {getTrucks().map((truck,id) => {
+            const { truckNumber, lastRunningState:{truckRunningState}, lastWaypoint: {speed}} =  truck;
+            return <div key={id} className="Truck-detail">
                 <div className="Left-float">
                     <span>{truckNumber}</span>
                 </div>
-                <div className="Right-float">
-                    <span>{speed}k/h</span>
-                </div>
+                {truckRunningState ? <div className="Right-float">
+                    <small>{speed}k/h</small>
+                </div> : null}
             </div>})}
-            {(state ==='total' || state === 'error') ? errorTrucks.map((truck) => {
-            const { truckNumber, lastWaypoint: {speed}} =  truck;
-            return <div className="Truck-detail Red-background">
+            {(state ==='total' || state === 'error') ? errorTrucks.map((truck, id) => {
+            const { truckNumber } =  truck;
+            return <div key={id} className="Truck-detail Red-background">
                 <div className="Left-float">
                     <span>{truckNumber}</span>
-                </div>
-                <div className="Right-float">
-                    <span>{speed}k/h</span>
                 </div>
             </div>}):null}
         </Fragment>

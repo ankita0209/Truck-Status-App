@@ -6,7 +6,7 @@ function Select(props) {
         <div className="Header-tab" >
             <select className="Header-select-tab">
                 <option>Select</option>
-                {props.options.map((option) => <option value={option.value}>{option.title}</option>)}
+                {props.options.map((option, id) => <option key={id} value={option.value}>{option.title}</option>)}
             </select>
         </div>
     );

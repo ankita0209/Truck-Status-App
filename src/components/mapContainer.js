@@ -15,21 +15,21 @@ function MapContainer(props) {
           zoom={7}
           initialCenter={{ lat: 31.363203048706055, lng: 75.38447570800781}}
         >
-          {(state === 'total' || state === 'running') ? runningTrucks.map((truck) => {
+          {(state === 'total' || state === 'running') ? runningTrucks.map((truck, id) => {
             const { lastWaypoint: {lat, lng} } = truck;
-            return <Marker position={{ lat, lng }} icon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png" />
+            return <Marker key={id} position={{ lat, lng }} icon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png" />
           }):null}
-          {(state === 'total' || state === 'stopped') ? stoppedTrucks.map((truck) => {
+          {(state === 'total' || state === 'stopped') ? stoppedTrucks.map((truck, id) => {
             const { lastWaypoint: {lat, lng} } = truck;
-            return <Marker position={{ lat, lng }} icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"/>
+            return <Marker key={id} position={{ lat, lng }} icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"/>
           }):null}
-          {(state === 'total' || state === 'idle') ? idleTrucks.map((truck) => {
+          {(state === 'total' || state === 'idle') ? idleTrucks.map((truck, id) => {
             const { lastWaypoint: {lat, lng} } = truck;
-            return <Marker position={{ lat, lng }} icon = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"/>
+            return <Marker key={id} position={{ lat, lng }} icon = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"/>
           }):null}
-          {(state === 'total' || state === 'error') ? errorTrucks.map((truck) => {
+          {(state === 'total' || state === 'error') ? errorTrucks.map((truck, id) => {
             const { lastWaypoint: {lat, lng} } = truck;
-            return <Marker position={{ lat, lng }} icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"/>
+            return <Marker key={id} position={{ lat, lng }} icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"/>
           }):null}
         </Map>
     );
