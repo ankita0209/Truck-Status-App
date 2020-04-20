@@ -1,15 +1,19 @@
 //Import outside modules
 import React from 'react';
+import Select from 'react-select';
 
-function Select(props) {
+function SelectTab(props) {
+    const { options, selector } = props;
     return (
         <div className="Header-tab" >
-            <select className="Header-select-tab">
-                <option>Select</option>
-                {props.options.map((option, id) => <option key={id} value={option.value}>{option.title}</option>)}
-            </select>
+            <Select
+                // value={selectedOption}
+                onChange={selector}
+                isMulti={true}
+                options={options}
+            />
         </div>
     );
 }
 
-export default Select;
+export default SelectTab;

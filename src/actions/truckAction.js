@@ -45,3 +45,12 @@ export function getAllTrucks() {
       });
   }
 }
+
+export function getFilterTrucks(data) {
+  return (dispatch) => {
+    return dispatch({
+      type: 'GET_FILTER_TRUCKS',
+      data: data
+    })
+  }
+}  

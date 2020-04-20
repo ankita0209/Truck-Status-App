@@ -13,10 +13,7 @@
   text-align: center;
   padding: 15px;
   flex-basis: 20%;
-}
-
-.Header-select-tab {
-  padding: 0 15px
+  z-index: 1;
 }
 
 .Background {
@@ -34,13 +31,17 @@
 
 /* Styling for side bar */
 .Sidebar-container {
-  flex-basis: 15%;
+  flex-basis: 20%;
   overflow: auto;
 }
 
 .Truck-detail {
-  height: 35px; 
+  height: 50px; 
   border-bottom: 1px solid black
+}
+
+.Sidebar-search-box {
+  width: -webkit-fill-available;
 }
 
 .Red-background {
@@ -55,7 +56,11 @@
   float: right;
 }
 
+.Display-block {
+  display: block;
+}
+
 /* Styling for map section */
 .Map-container {
-  flex-basis: 85%;
+  flex-basis: 80%;
 }

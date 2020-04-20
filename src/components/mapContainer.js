@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 function MapContainer(props) {
 
-    const { state, runningTrucks, stoppedTrucks, idleTrucks, errorTrucks } = props;
+    const { state, runningTrucks, stoppedTrucks, idleTrucks, errorTrucks, filterTrucks } = props;
 
     return (
          <Map
@@ -31,6 +31,10 @@ function MapContainer(props) {
             const { lastWaypoint: {lat, lng} } = truck;
             return <Marker key={id} position={{ lat, lng }} icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"/>
           }):null}
+          {(state === 'filtered') ? filterTrucks.map((truck, id) => {
+            const { lastWaypoint: {lat, lng} } = truck;
+            return <Marker key={id} position={{ lat, lng }} icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"/>
+          }):null}
         </Map>
     );
 }
@@ -40,7 +44,8 @@ const mapStateToProps = (state) => {
       runningTrucks: state.runningTruck,
       stoppedTrucks: state.stoppedTruck,
       idleTrucks: state.idleTruck,
-      errorTrucks: state.errorTruck
+      errorTrucks: state.errorTruck,
+      filterTrucks: state.filterTrucks
   }
 }
 

@@ -9,9 +9,10 @@ import { getAllTrucks } from '../actions/truckAction';
 
 function Home(props) {
     const [state, setState] = useState("total");
+    const { getAllTrucks } = props;
 
     useEffect(() => {
-        props.getAllTrucks();
+        getAllTrucks();
     },[getAllTrucks]);
 
     return (
@@ -19,7 +20,7 @@ function Home(props) {
             <Header state={state} setState={setState}/>
             <div className="App-content">
                 <div className="Sidebar-container">
-                    <Sidebar state={state}/>
+                    <Sidebar state={state} setState={setState}/>
                 </div>
                 <div className="Map-container">
                     <MapContainer state={state}/>
